@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 	try {
 		// const user = await User.findOne({ email: req.body.email });
 		var request= await Request.find();
-		res.status(200).json({ data: request, message: "Requests fetched sucessfuly" });
+		res.status(200).json(request);
 		// console.log(request);
 		if (!request){
 			return res.status(401).send({ message: "Requests does not exist" });}
