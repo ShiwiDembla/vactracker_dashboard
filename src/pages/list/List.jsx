@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar"
 // import Datatable from "../../components/datatable/Datatable"
 // import List2 from "../../components/table/Table"
 import DataGrid2 from "../../Table/DataGrid"
+import VaccineRequestDataTable from "../../DataTable/VaccineRequestData"
 // import { useState, axios, useEffect } from "react";
 const List = () => {
   
@@ -35,10 +36,11 @@ const List = () => {
       <div className="listContainer">
         <Navbar/>
         {/* <Datatable/> */}
-        <DataGrid2/>
+        <VaccineRequestDataTable/>
+        {/* <DataGrid2/> */}
         {/* <List2/> */}
-        <div
-        > hello</div>
+        {/* <div
+        > hello</div> */}
       </div>
     </div>
   )

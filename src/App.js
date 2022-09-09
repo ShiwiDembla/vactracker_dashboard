@@ -1,4 +1,5 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, } from "react-router-dom";
+
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -12,6 +13,15 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import List from "./pages/list/List";
 import Datatable from "./components/datatable/Datatable";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import ShowVaccine from "./pages/vaccines/ShowVaccine";
+import Register from "../src/pages/vaccines/Register";
+import Edit from "../src/pages/vaccines/Edit";
+import Details from "../src/pages/vaccines/Details";
+import ShowSlots from "./pages/slots/ShowSlots";
+import Vaccinated from "./pages/vaccinated/Vaccinated";
+import VaccinatedList from "./pages/vaccinated/VaccinatedList";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -40,13 +50,31 @@ function App() {
     //         <
     // <div className={darkMode ? "app dark" : "app"}>
 		<Routes>
-			{user && <Route path="/" exact element={<Login />} />}
+      {/* {user ?  console.log("User",user) : console.log("no user")} */}
+			{/* {user && <Route path="/" exact element={<Login />} />} */}
 			<Route path="/signup" exact element={<Signup />} />
-			<Route path="/login" exact element={<Login />} />
+			{/* <Route path="/login" exact element={<Login />} /> */}
+			<Route path="/login"  element={user ? <Navigate to = "/home" />: <Login />} />
 			<Route path="/" element={<Navigate replace to="/login" />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/requests" element= {<List/>} />
-      {/* <Route path="/z" element= {<Datatable/>} /> */}
+      <Route path="/home" element={user ? <Home /> : <Navigate to ="/" />} />
+      {/* <Route path="/home" element={<Home />} /> */}
+      <Route path="/requests" element= {user ? <List/> : <Navigate to ="/login" />} />
+      <Route path="/vaccines" element= {user ? <ShowVaccine/> : <Navigate to ="/login" /> } />
+      <Route path="/register" element= {user ? <Register/>: <Navigate to ="/login" />} />
+      <Route path="/edit/:id" element= {user ? <Edit/>: <Navigate to ="/login" />} />
+      {/* <Route path="/registervaccine" element={<Register/>} /> */}
+      <Route path="/view/:id" element={user ? <Details/> : <Navigate to ="/login" />} />
+      <Route path="/slots" element={user ? <ShowSlots/>: <Navigate to ="/login" />} />
+      {/* <Route path="/vaccinated" element={<Vaccinated/>} /> */}
+      <Route path="/vaccinated" element={user ? <VaccinatedList/>: <Navigate to ="/login" />} />
+      <Route path="/vaccinatedlist" element={user ?<VaccinatedList/> : <Navigate to ="/login" />} />
+      {/* <Route path="/hello"  render={() => (
+  user ? (
+    <Navigate replace to="/home"/>
+  ) : (
+    <Login/>
+  )
+)} /> */}
 
 		</Routes>
     // </div>

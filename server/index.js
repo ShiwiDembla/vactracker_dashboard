@@ -5,7 +5,10 @@ const cors = require("cors");
 const connection = require("./db");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
-const vaccineRoutes = require("./routes/requests");
+const requestRoutes = require("./routes/requests");
+const vaccineRoutes = require("./routes/vaccines");
+const slotsRoutes = require("./routes/slots");
+const vaccinatedRoutes = require("./routes/vaccinated");
 
 // database connection
 connection();
@@ -17,7 +20,10 @@ app.use(cors());
 // routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/requests", vaccineRoutes);
+app.use("/api/requests", requestRoutes);
+app.use("/api/vaccines", vaccineRoutes);
+app.use("/api/slots", slotsRoutes);
+app.use("/api/vaccinated", vaccinatedRoutes);
 
 
 const port = process.env.PORT || 8080;

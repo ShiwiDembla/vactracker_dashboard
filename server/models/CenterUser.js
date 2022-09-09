@@ -12,6 +12,7 @@ const CenterUserSchema = new mongoose.Schema({
     regid : { type: String, required: true, unique: true },
     center: {type: String, required: true},
     city : {type: String, required: true}, 
+	role : {type: String, required: true},
 });
 
 CenterUserSchema.methods.generateAuthToken = function () {
@@ -32,6 +33,7 @@ const validate = (data) => {
         regid : Joi.string().required().label("Regid"),
         center: Joi.string().required().label("Center"),
         city : Joi.string().required().label("City"),
+		role : Joi.string().required().label("Role"),
 
 	});
 	return schema.validate(data);

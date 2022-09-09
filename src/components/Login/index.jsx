@@ -16,8 +16,26 @@ const Login = () => {
 		try {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = "/home";
+			// console.log(res["token"]);
+			// alert("res.data", {res})
+			console.log(res.data[0])
+			console.log("city",res.data[1])
+			console.log("center",res.data[2])
+			console.log("role",res.data[3])
+
+			localStorage.setItem("token", res.data[0]);
+			localStorage.setItem("city", res.data[1]);
+			localStorage.setItem("center", res.data[2]);
+			localStorage.setItem("role", res.data[3]);
+			if(res.data[3] === "admin"){
+			window.location = "/admin";
+			}
+			else if(res.data[3] === "user"){
+				window.location = "/home";
+			}
+			else{
+				console.log('xyz')
+			}
 		} catch (error) {
 			if (
 				error.response &&

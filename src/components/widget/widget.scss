@@ -3,8 +3,9 @@
   justify-content: space-between;
   flex: 1;
   padding: 10px;
+  background-color: #4ba796;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(69, 108, 109, 0.47);
   border-radius: 10px;
   height: 100px;
 
@@ -17,12 +18,13 @@
     .title {
       font-weight: bold;
       font-size: 14px;
-      color: rgb(160, 160, 160);
+      color: rgb(16, 15, 15);
     }
 
     .counter {
-      font-size: 28px;
-      font-weight: 300;
+      font-size: 30px;
+      font-weight: 400;
+   
     }
 
     .link {
