@@ -25,6 +25,30 @@ router.post("/", async (req, res) => {
 	}
 });
 
+
+// get all users
+router.get("/show", async (req, res) => {
+	try {
+		const users = await CenterUser.find();
+		res.status(200).send(users);
+	} catch (error) {
+		res.status(500).send({ message: "Internal Server Error" });
+	}
+});
+
+// delete user
+router.delete("/delete/:id",async(req,res)=>{
+    try {
+        const {id} = req.params;
+
+        const deleteuser = await CenterUser.findByIdAndDelete({_id:id})
+        console.log(deleteuser);
+        res.status(201).json(deleteuser);
+
+    } catch (error) {
+        res.status(422).json(error);
+    }
+})
 // router.get("/hello", async (req, res) => {
 // 	try {
 // 		res.status(200).send({ message: "Hello World" });

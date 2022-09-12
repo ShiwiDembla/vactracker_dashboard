@@ -14,21 +14,47 @@ router.post("/register",async(req,res)=>{
     }
 else{
     try {
-        
-        const vaccineExists = await Vaccine.findOne({vaccineName: vaccineName});
-        console.log(vaccineExists);
+        const centerExists = await Vaccine.find({centerName: centerName});
+        // if(centerExists){
+            const x = centerExists
+            .map((item)=>{
+                return item.vaccineName;
+                });
+            // const y = JSON.parse(x);
+            console.log("dont know",x);
+            if(x.includes(vaccineName)){
+                res.status(402).json("Vaccine Already exists");
+            }
+            else{
+                const addvaccine = new Vaccine({
+                            regid,centerName,vaccineName,vaccineQuantity
+                        });
+            
+                        await addvaccine.save();
+                        res.status(201).json(addvaccine);
+                        console.log(addvaccine);
+                    }
+            
+            // console.log(centerExists);
+     
+            // const {vacc} = centerExists.vaccineName;
+            // console.log({vacc});
+        // const vaccineExists = await centerExists.findOne({vaccineName: vaccineName});
+        // console.log("vaccine in that center",vaccineExists);
+       
 
-        if(vaccineExists){
-            res.status(402).json("Vaccine already exists");
-        }else{
-            const addvaccine = new Vaccine({
-                regid,centerName,vaccineName,vaccineQuantity
-            });
 
-            await addvaccine.save();
-            res.status(201).json(addvaccine);
-            console.log(addvaccine);
-        }
+        // if(vaccineExists){
+        //     res.status(402).json("Vaccine already exists");
+        // }else{
+        //     const addvaccine = new Vaccine({
+        //         regid,centerName,vaccineName,vaccineQuantity
+        //     });
+
+        //     await addvaccine.save();
+        //     res.status(201).json(addvaccine);
+        //     console.log(addvaccine);
+        // }
 
     } catch (error) {
         res.status(422).json(error);

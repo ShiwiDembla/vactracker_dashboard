@@ -5,7 +5,7 @@ require('../models/vaccinated');
 const Vaccinated = mongoose.model('Vaccinated')
 
 //working
-router.post("/add",async(req,res)=>{
+// router.post("/add",async(req,res)=>{
     // console.log(req.body);
 //     const {regid,centerName,vaccineName,vaccineQuantity} = req.body;
 
@@ -34,6 +34,10 @@ router.post("/add",async(req,res)=>{
 //         res.status(422).json(error);
 //     }
 // }
+
+//totally working
+
+router.post("/add",async(req,res)=>{
 const {Username, Email, Phone, City, Center, Vaccine, UserID, CNIC, Date, Time} = req.body;
    
 Vaccinated.findOne({CNIC}).then(data => {

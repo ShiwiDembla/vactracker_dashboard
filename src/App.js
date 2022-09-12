@@ -20,11 +20,19 @@ import Register from "../src/pages/vaccines/Register";
 import Edit from "../src/pages/vaccines/Edit";
 import Details from "../src/pages/vaccines/Details";
 import ShowSlots from "./pages/slots/ShowSlots";
-import Vaccinated from "./pages/vaccinated/Vaccinated";
+import Vaccinated from "./pages/vaccinated/Vaccinated2";
 import VaccinatedList from "./pages/vaccinated/VaccinatedList";
+import Admin from "./pages/admin/admindashboard/Admin";
+import Users from "./pages/admin/Users/Users";
+import List2 from "./pages/vaccinated/VaccinatedList";
+import AddUser from "./pages/admin/Users/AddUser";
+import NotFound from "./pages/NotFound/NotFound";
+import Centers from "./pages/admin/Centers/Centers";
+import AddCenter from "./pages/admin/Centers/AddCenter";
 
 function App() {
 	const user = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
   const { darkMode } = useContext(DarkModeContext);
 
 	return (
@@ -55,7 +63,7 @@ function App() {
 			<Route path="/signup" exact element={<Signup />} />
 			{/* <Route path="/login" exact element={<Login />} /> */}
 			<Route path="/login"  element={user ? <Navigate to = "/home" />: <Login />} />
-			<Route path="/" element={<Navigate replace to="/login" />} />
+			<Route path="/"  element={<Navigate replace to="/login" />} />
       <Route path="/home" element={user ? <Home /> : <Navigate to ="/" />} />
       {/* <Route path="/home" element={<Home />} /> */}
       <Route path="/requests" element= {user ? <List/> : <Navigate to ="/login" />} />
@@ -68,6 +76,13 @@ function App() {
       {/* <Route path="/vaccinated" element={<Vaccinated/>} /> */}
       <Route path="/vaccinated" element={user ? <VaccinatedList/>: <Navigate to ="/login" />} />
       <Route path="/vaccinatedlist" element={user ?<VaccinatedList/> : <Navigate to ="/login" />} />
+      <Route path="/admin" element={(role=='admin') ?<Admin/> : <Navigate to ="/login"/>} />
+      <Route path="/users" element={(role=='admin') ?<Users/> : <Navigate to ="/login"/>} />
+      <Route path="/allvaccinated" element={(role=='admin') ?<List2/> : <Navigate to ="/login" />} />
+      <Route path="/adduser" element={(role=='admin') ?<AddUser/> : <Navigate to ="/login" />} />
+      <Route path="/centers" element={(role=='admin') ?<Centers/> : <Navigate to ="/login" />} />
+      <Route path="/AddCenter" element={(role=='admin') ?<AddCenter/> : <Navigate to ="/login" />} />
+      <Route path="*" element={<NotFound/>} />
       {/* <Route path="/hello"  render={() => (
   user ? (
     <Navigate replace to="/home"/>

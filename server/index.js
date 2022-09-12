@@ -10,6 +10,7 @@ const vaccineRoutes = require("./routes/vaccines");
 const slotsRoutes = require("./routes/slots");
 const vaccinatedRoutes = require("./routes/vaccinated");
 
+const centerRoutes = require("./routes/centers");
 // database connection
 connection();
 
@@ -24,6 +25,7 @@ app.use("/api/requests", requestRoutes);
 app.use("/api/vaccines", vaccineRoutes);
 app.use("/api/slots", slotsRoutes);
 app.use("/api/vaccinated", vaccinatedRoutes);
+app.use("/api/centers", centerRoutes);
 
 
 const port = process.env.PORT || 8080;
