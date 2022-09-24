@@ -49,6 +49,18 @@ router.delete("/delete/:id",async(req,res)=>{
         res.status(422).json(error);
     }
 })
+
+//count users
+router.get('/countUsers', async(req, res) => {
+	try{
+    const count = await CenterUser.count({"role": "user"})
+	res.status(201).json(count);
+    }
+	catch(err) {
+		res.status(422).json(err);
+    }
+})
+
 // router.get("/hello", async (req, res) => {
 // 	try {
 // 		res.status(200).send({ message: "Hello World" });

@@ -3,12 +3,12 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import CreateIcon from '@mui/icons-material/Create';
 import CheckCircle from '@mui/icons-material/CheckCircle';
 import { Link, NavLink } from 'react-router-dom';
-import { adddata, deldata } from '../contextprovider/ContextProvider';
-import { updatedata } from '../contextprovider/ContextProvider'
-import Sidebar from '../components/sidebar/Sidebar';
-import Navbar from '../components/navbar/Navbar';
+import { adddata, deldata } from '../../../contextprovider/ContextProvider';
+import { updatedata } from '../../../contextprovider/ContextProvider'
+import Sidebar2 from '../sidebar/Sidebar';
+import Navbar2 from '../navbar/Navbar';
 import './vaccine.scss';
-const VaccineRequestDataTable = () => {
+const VaccineRequests = () => {
 
   
   const [getuserdata, setUserdata] = useState([]);
@@ -17,8 +17,8 @@ const VaccineRequestDataTable = () => {
 //     console.log("city storage",cityy);
 // const center = localStorage.getItem("center");
 //     console.log("center storage",center);
-const cityy="quetta";
-const center="quetta";
+// const cityy="peshawar";
+// const center="islamabad";
 
 
   const { udata, setUdata } = useContext(adddata);
@@ -31,7 +31,7 @@ const center="quetta";
 
   const getdata = async () => {
 
-      const res = await fetch("http://localhost:8080/api/requests/"+cityy+"/"+center, {
+      const res = await fetch("http://localhost:8080/api/requests/all", {
           method: "GET",
           headers: {
               "Content-Type": "application/json"
@@ -90,6 +90,10 @@ const center="quetta";
   
 
   return (
+    <div className="home">
+    <Sidebar2 />
+    <div className="homeContainer">
+  <Navbar2 />
    <>
     {success ?  
     <> 
@@ -149,10 +153,13 @@ const center="quetta";
                     </table>
                     </div>
             </div>
+           
 
               
         </>
+        </div>
+            </div>
   )
 }
 
-export default VaccineRequestDataTable
+export default VaccineRequests

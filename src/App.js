@@ -29,6 +29,7 @@ import AddUser from "./pages/admin/Users/AddUser";
 import NotFound from "./pages/NotFound/NotFound";
 import Centers from "./pages/admin/Centers/Centers";
 import AddCenter from "./pages/admin/Centers/AddCenter";
+import VaccineRequests from "./pages/admin/VaccineRequests/VaccineRequests";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -82,6 +83,7 @@ function App() {
       <Route path="/adduser" element={(role=='admin') ?<AddUser/> : <Navigate to ="/login" />} />
       <Route path="/centers" element={(role=='admin') ?<Centers/> : <Navigate to ="/login" />} />
       <Route path="/AddCenter" element={(role=='admin') ?<AddCenter/> : <Navigate to ="/login" />} />
+      <Route path="/allrequests" element={(role=='admin') ?<VaccineRequests/> : <Navigate to ="/login" />} />
       <Route path="*" element={<NotFound/>} />
       {/* <Route path="/hello"  render={() => (
   user ? (

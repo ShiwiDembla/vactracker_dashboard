@@ -47,4 +47,14 @@ router.delete("/delete/:id",async(req,res)=>{
     }
 })
 
+//count centers
+router.get('/countCenters', async(req, res) => {
+	try{
+    const count = await Center.count()
+	res.status(201).json(count);
+    }
+	catch(err) {
+		res.status(422).json(err);
+    }
+})
 module.exports = router;

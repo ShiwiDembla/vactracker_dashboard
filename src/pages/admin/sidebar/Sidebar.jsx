@@ -47,10 +47,10 @@ const Sidebar2 = () => {
               <span>Center Users</span>
             </li>
           </Link>
-          <Link to="/allvaccines" style={{ textDecoration: "none" }}>
+          <Link to="/allrequests" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Vaccines</span>
+              <span>Vaccine Requests</span>
             </li>
           </Link>
           <Link to="/centers" style={{ textDecoration: "none" }}>

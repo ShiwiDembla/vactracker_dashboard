@@ -87,6 +87,17 @@ router.get("/",async(req,res)=>{
     }
 })
 
+//count vaccinated
+router.get('/countVaccinated', async(req, res) => {
+	try{
+    const count = await Vaccinated.count()
+	res.status(201).json(count);
+    }
+	catch(err) {
+		res.status(422).json(err);
+    }
+})
+
 // get individual vaccine
 
 // router.get("/:vaccineName",async(req,res)=>{

@@ -80,6 +80,35 @@ router.delete("/:id",async(req,res)=>{
     }
 })
 
+//all requests
+
+router.get("/all", async (req, res) => {
+	
+	try {
+		// const user = await User.findOne({ email: req.body.email });
+		var request= await Request.find();
+		res.status(200).json(request);
+		// console.log(request);
+		if (!request){
+			return res.status(401).send({ message: "Requests does not exist" });}
+		
+	} catch (error) {
+		res.status(500).send({ message: "xyz"  });
+		console.log(error)
+	}
+});
+
+
+//count users
+router.get('/countRequests', async(req, res) => {
+	try{
+    const count = await Request.count()
+	res.status(201).json(count);
+    }
+	catch(err) {
+		res.status(422).json(err);
+    }
+})
 
 
 
