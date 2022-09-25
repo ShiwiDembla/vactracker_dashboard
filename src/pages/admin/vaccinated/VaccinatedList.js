@@ -1,23 +1,27 @@
 import "./list.scss"
-import Sidebar from "../../components/sidebar/Sidebar"
-import Navbar from "../../components/navbar/Navbar"
+// import Sidebar from "../../components/sidebar/Sidebar"
+// import Navbar from "../../components/navbar/Navbar"
 
-import VaccineRequestDataTable from "../../DataTable/VaccineRequestData"
-import Listvaccinated from "./Listvaccinated"
+// import VaccineRequestDataTable from "../../DataTable/VaccineRequestData"
+// import Listvaccinated from "./Listvaccinated"
+import Sidebar2 from "../sidebar/Sidebar"
+import Navbar2 from "../navbar/Navbar"
+import Listvaccinatedadmin from "./adminVaccinated"
 
-const List = () => {
+const adminVaccinatedList = () => {
   
 
   return (
     <div className="list">
-      <Sidebar/>
+      <Sidebar2/>
       <div className="listContainer">
-        <Navbar/>
+        <Navbar2/>
         {/* <Datatable/> */}
         {/* <VaccineRequestDataTable/> */}
         {/* <DataGrid2/> */}
         {/* <List2/> */}
-        <Listvaccinated/>
+        <Listvaccinatedadmin/>
+        
         {/* <div
         > hello</div> */}
       </div>
@@ -25,4 +29,4 @@ const List = () => {
   )
 }
 
-export default List
+export default adminVaccinatedList

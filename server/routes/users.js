@@ -36,6 +36,45 @@ router.get("/show", async (req, res) => {
 	}
 });
 
+router.get("/showusers/:id", async (req, res) => {
+	try {
+		const {id} = req.params;
+		const users = await CenterUser.findById({_id:id});
+		res.status(200).send(users);
+	} catch (error) {
+		res.status(500).send({ message: "Internal Server Error" });
+	}
+});
+
+// update user
+router.patch("/updateuser/:id", async (req, res) => {
+	try {
+		const {id} = req.params;
+		const { error } = validate(req.body);
+		if (error)
+			return res.status(400).send({ message: error.details[0].message });
+
+			const centeruserexists = await CenterUser.findOne({ email: req.body.email });
+		if (centeruserexists)
+			return res
+				.status(409)
+				.send({ message: "User with given email already Exist!" });
+
+		const salt = await bcrypt.genSalt(Number(process.env.SALT));
+		const hashPassword = await bcrypt.hash(req.body.password, salt);
+		
+		const centeruser = await CenterUser.findOneAndUpdate(
+			{ _id: id },
+			{ ...req.body, password: hashPassword },
+			{ new: true }
+		);
+
+		res.status(200).send({ message: "User updated successfully" });
+	} catch (error) {
+		res.status(500).send({ message: "Internal Server Error" });
+	}
+});
+
 // delete user
 router.delete("/delete/:id",async(req,res)=>{
     try {

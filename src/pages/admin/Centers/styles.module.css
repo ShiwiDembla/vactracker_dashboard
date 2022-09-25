@@ -71,7 +71,7 @@
 	width: 370px;
 	padding: 15px;
 	margin: 5px 0;
-	font-size: 14px;
+	font-size: 16px;
 	background-color: #f34646;
 	color: white;
 	border-radius: 5px;
@@ -81,9 +81,9 @@ success_msg {
 	width: 370px;
 	padding: 15px;
 	margin: 5px 0;
-	font-size: 14px;
+	font-size: 16px;
 	background-color: #02fde4;
-	color: white;
+	color: #02fde4;
 	border-radius: 5px;
 	text-align: center;
 }

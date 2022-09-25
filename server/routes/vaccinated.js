@@ -87,6 +87,17 @@ router.get("/",async(req,res)=>{
     }
 })
 
+router.get("/:center",async(req,res)=>{
+    const center = req.params.center;
+    try {
+        const vaccinated = await Vaccinated.find({Center: center});
+        res.status(201).json(vaccinated)
+        console.log(vaccinated);
+    } catch (error) {
+        res.status(422).json(error);
+    }
+})
+
 //count vaccinated
 router.get('/countVaccinated', async(req, res) => {
 	try{

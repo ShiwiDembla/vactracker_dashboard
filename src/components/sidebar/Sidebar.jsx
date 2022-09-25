@@ -70,7 +70,7 @@ const Sidebar = () => {
             <LocalShippingIcon className="icon" />
             <span>Delivery</span>
           </li> */}
-          <p className="title">USEFUL</p>
+          {/* <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
             <span>Stats</span>
@@ -78,7 +78,7 @@ const Sidebar = () => {
           <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>
-          </li>
+          </li> */}
           {/* <p className="title">SERVICE</p>
           <li>
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
@@ -92,7 +92,7 @@ const Sidebar = () => {
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
           </li> */}
-          <p className="title">USER</p>
+          <p className="title">Account</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>

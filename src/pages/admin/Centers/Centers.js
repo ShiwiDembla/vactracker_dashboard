@@ -132,9 +132,9 @@ const Centers = () => {
                                            <td>{element.state}</td>
                                            <td>{element.name}</td>
                                            <td >
-                                               {/* <NavLink to={`view/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink>
-                                               <NavLink to={`edit/${element._id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink> */}
-                                               <button className="btn btn-danger" onClick={() => deleteuser(element._id)}><DeleteOutlineIcon /></button>
+                                               {/* <NavLink to={`view/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink> */}
+                                               <NavLink to={`edit/${element._id}`}>  <button className="btn btn-primary mr-3 "><CreateIcon /></button></NavLink>
+                                               <button className="btn btn-danger ml-3" onClick={() => deleteuser(element._id)}><DeleteOutlineIcon /></button>
                                            </td>
                                        </tr>
                                    </>

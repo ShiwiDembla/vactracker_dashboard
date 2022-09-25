@@ -43,14 +43,14 @@ const columns = [
 ]
 
 
-const Listvaccinated = () => {
+const Listvaccinatedadmin = () => {
 
   const [tableData, setTableData] = useState([])
   // const [data, setData] = useState([])
-
+  const center='Gulshan-e-Iqbal'
   const fetchData = async () => {
     try{
-    const response = await fetch('http://localhost:8080/api/vaccinated/')
+    const response = await fetch('http://localhost:8080/api/vaccinated/'+center)
     const data = await response.json()
     setTableData(data)
     console.log(data)
@@ -114,4 +114,4 @@ const Listvaccinated = () => {
   )
 }
 
-export default Listvaccinated
+export default Listvaccinatedadmin

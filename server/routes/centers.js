@@ -15,6 +15,17 @@ router.get("/",async(req,res)=>{
     }
 });
 
+router.get("/:id",async(req,res)=>{
+   
+    try {
+        const {id} = req.params;
+        const centers = await Center.findById({_id:id});
+        res.status(201).json(centers)
+        console.log(centers);
+    } catch (error) {
+        res.status(422).json(error);
+    }
+});
 // add center
 router.post("/add", async (req, res) => {
 	try {
@@ -46,6 +57,25 @@ router.delete("/delete/:id",async(req,res)=>{
         res.status(422).json(error);
     }
 })
+
+// update user
+router.patch("/updatecenter/:id",async(req,res)=>{
+    try{
+        const {id}=req.params;
+        const centerexists = await Center.findOne({ regid: req.body.regid });
+		if (centerexists)
+			return res
+				.status(409)
+				.send({ message: "Center with this registration ID already Exist!" });
+        const updateuser = await Center.findByIdAndUpdate({_id:id},req.body,{new:true})
+        console.log(updateuser);
+        res.status(201).json(updateuser);
+    }catch(error){
+        res.status(422).json(error);
+    }
+})
+
+
 
 //count centers
 router.get('/countCenters', async(req, res) => {

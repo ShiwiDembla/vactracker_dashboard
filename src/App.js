@@ -30,6 +30,10 @@ import NotFound from "./pages/NotFound/NotFound";
 import Centers from "./pages/admin/Centers/Centers";
 import AddCenter from "./pages/admin/Centers/AddCenter";
 import VaccineRequests from "./pages/admin/VaccineRequests/VaccineRequests";
+import adminVaccinatedList from "./pages/admin/vaccinated/VaccinatedList";
+import EditCenter from "./pages/admin/Centers/EditCenter";
+import EditUser from "./pages/admin/Users/EditUser";
+
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -70,19 +74,24 @@ function App() {
       <Route path="/requests" element= {user ? <List/> : <Navigate to ="/login" />} />
       <Route path="/vaccines" element= {user ? <ShowVaccine/> : <Navigate to ="/login" /> } />
       <Route path="/register" element= {user ? <Register/>: <Navigate to ="/login" />} />
-      <Route path="/edit/:id" element= {user ? <Edit/>: <Navigate to ="/login" />} />
+      <Route path="/vaccines/edit/:id" element= {user ? <Edit/>: <Navigate to ="/login" />} />
+    
       {/* <Route path="/registervaccine" element={<Register/>} /> */}
       <Route path="/view/:id" element={user ? <Details/> : <Navigate to ="/login" />} />
       <Route path="/slots" element={user ? <ShowSlots/>: <Navigate to ="/login" />} />
       {/* <Route path="/vaccinated" element={<Vaccinated/>} /> */}
       <Route path="/vaccinated" element={user ? <VaccinatedList/>: <Navigate to ="/login" />} />
-      <Route path="/vaccinatedlist" element={user ?<VaccinatedList/> : <Navigate to ="/login" />} />
+      {/* <Route path="/vaccinatedlist" element={user ?<VaccinatedList/> : <Navigate to ="/login" />} /> */}
       <Route path="/admin" element={(role=='admin') ?<Admin/> : <Navigate to ="/login"/>} />
       <Route path="/users" element={(role=='admin') ?<Users/> : <Navigate to ="/login"/>} />
-      <Route path="/allvaccinated" element={(role=='admin') ?<List2/> : <Navigate to ="/login" />} />
+      {/* <Route path="/allvaccinated" element={(role=='admin') ?<adminVaccinatedList/> : <Navigate to ="/login" />} /> */}
+      <Route path="/allvaccinated" element={(role=='admin') ?<VaccinatedList/> : <Navigate to ="/login" />} />
       <Route path="/adduser" element={(role=='admin') ?<AddUser/> : <Navigate to ="/login" />} />
+      <Route path="users/edituser/:id" element={(role=='admin') ?<EditUser/> : <Navigate to ="/login" />} />
+
       <Route path="/centers" element={(role=='admin') ?<Centers/> : <Navigate to ="/login" />} />
       <Route path="/AddCenter" element={(role=='admin') ?<AddCenter/> : <Navigate to ="/login" />} />
+      <Route path="/centers/edit/:id" element= {(role=='admin') ? <EditCenter/>: <Navigate to ="/login" />} />
       <Route path="/allrequests" element={(role=='admin') ?<VaccineRequests/> : <Navigate to ="/login" />} />
       <Route path="*" element={<NotFound/>} />
       {/* <Route path="/hello"  render={() => (

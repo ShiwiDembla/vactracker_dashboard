@@ -24,10 +24,12 @@ const ShowVaccine = () => {
     const {dltdata, setDLTdata} = useContext(deldata);
     const [success, setSuccess] = useState(false);
     
+    const center = localStorage.getItem("center");
+        console.log("center storage",center);
 
     const getdata = async () => {
 
-        const res = await fetch("http://localhost:8080/api/vaccines/", {
+        const res = await fetch("http://localhost:8080/api/vaccines/"+center, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -150,8 +152,8 @@ const ShowVaccine = () => {
                                                 <td>{element.vaccineName}</td>
                                                 <td>{element.vaccineQuantity}</td>
                                                 <td >
-                                                    {/* <NavLink to={`view/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink>
-                                                    <NavLink to={`edit/${element._id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink> */}
+                                                    {/* <NavLink to={`view/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink> */}
+                                                    <NavLink to={`edit/${element._id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink>
                                                     <button className="btn btn-danger" onClick={() => deleteuser(element._id)}><DeleteOutlineIcon /></button>
                                                 </td>
                                             </tr>

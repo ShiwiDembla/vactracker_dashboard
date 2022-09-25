@@ -76,6 +76,17 @@ router.get("/",async(req,res)=>{
     }
 })
 
+router.get("/:center",async(req,res)=>{
+    const {center} = req.params;
+    try {
+        const vaccines = await Vaccine.find({centerName: req.params.center});
+        res.status(201).json(vaccines)
+        console.log(vaccines);
+    } catch (error) {
+        res.status(422).json(error);
+    }
+})
+
 // get individual vaccine
 
 // router.get("/:vaccineName",async(req,res)=>{
@@ -95,22 +106,30 @@ router.get("/",async(req,res)=>{
 
 // update user data
 
-router.patch("/:id",async(req,res)=>{
-    try {
-        const {id} = req.params;
+// router.patch("/:id",async(req,res)=>{
+//     try {
+//         const {id} = req.params;
+//         const centerexists = await Vaccine.findOne({ name: req.body.name });
+// 		if (centerexists){
+// 			return res
+// 				.status(409)
+// 				.send({ message: "Center with this registration ID already Exist!" });
 
-        const updatevaccine = await Vaccine.findByIdAndUpdate(id,req.body,{
-            new:true,
-			// vaccineName:false,
-        });
+//         }
+//         else{
+//         const updatevaccine = await Vaccine.findByIdAndUpdate(id,req.body,{
+//             new:true,
+// 			// vaccineName:false,
+//         });
 
-        console.log(updatevaccine);
-        res.status(201).json(updatevaccine);
-
-    } catch (error) {
-        res.status(422).json(error);
-    }
-})
+        
+//         console.log(updatevaccine);
+//         res.status(201).json(updatevaccine);
+//     }
+//     } catch (error) {
+//         res.status(422).json(error);
+//     }
+// })
 
 
 router.patch("/find/:vaccineName",async(req,res)=>{

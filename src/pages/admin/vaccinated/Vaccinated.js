@@ -5,11 +5,13 @@ import CheckCircle from '@mui/icons-material/CheckCircle';
 import { Link, NavLink } from 'react-router-dom';
 import { adddata, deldata } from '../../contextprovider/ContextProvider';
 import { updatedata } from '../../contextprovider/ContextProvider'
-import Sidebar from '../../components/sidebar/Sidebar';
-import Navbar from '../../components/navbar/Navbar';
+// import Sidebar from '../../components/sidebar/Sidebar';
+// import Navbar from '../../components/navbar/Navbar';
+import Sidebar2 from '../sidebar/Sidebar';
+import Navbar2 from '../navbar/Navbar';
 import './vaccinated.scss';
 
-const ShowSlots = () => {
+const vaccinated = () => {
 
   
   const [getuserdata, setUserdata] = useState([]);
@@ -122,9 +124,9 @@ const ShowSlots = () => {
    <>
     
     <div className="list">
-      <Sidebar/>
+      <Sidebar2/>
       <div className="listContainer">
-        <Navbar/>
+        <Navbar2/>
         {success ?  
     <> 
     <div class="alert alert-success alert-dismissible fade show" role="alert"> Vaccinated Successfully!</div>
@@ -200,4 +202,4 @@ const ShowSlots = () => {
   )
 }
 
-export default ShowSlots
+export default vaccinated
