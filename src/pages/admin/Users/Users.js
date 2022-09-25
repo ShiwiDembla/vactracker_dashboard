@@ -14,6 +14,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { adddata, deldata } from '../../../contextprovider/ContextProvider';
 import { updatedata } from '../../../contextprovider/ContextProvider'
+import AlertDialog from "../../../components/DeleteDialogue";
 
 const Users = () => {
   
@@ -136,8 +137,9 @@ const Users = () => {
                                            <td>{element.city}</td>
                                            <td >
                                                {/* <NavLink to={`view/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink> */}
-                                               <NavLink to={`edituser/${element._id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink>
-                                               <button className="btn btn-danger" onClick={() => deleteuser(element._id)}><DeleteOutlineIcon /></button>
+                                               {/* <NavLink to={`edituser/${element._id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink>
+                                               <button className="btn btn-danger" onClick={() => deleteuser(element._id)}><DeleteOutlineIcon /></button> */}
+                                               <AlertDialog usersId={element._id} />
                                            </td>
                                        </tr>
                                    </>
@@ -158,10 +160,3 @@ const Users = () => {
 };
 
 export default Users;
-
-
-
-
-
-
-
