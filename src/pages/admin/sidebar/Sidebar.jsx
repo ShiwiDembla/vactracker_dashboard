@@ -92,11 +92,13 @@ const Sidebar2 = () => {
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
           </li> */}
-          <p className="title">USER</p>
+          <p className="title">Account</p>
+          <Link to="/adminprofile" style={{ textDecoration: "none" }}>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          </Link>
           <li >
             <ExitToAppIcon className="icon" />
            

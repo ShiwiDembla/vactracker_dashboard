@@ -99,10 +99,10 @@ router.get("/:center",async(req,res)=>{
 })
 
 //count vaccinated
-router.get('/countVaccinated', async(req, res) => {
+router.get('/count/vaccinated', async(req, res) => {
 	try{
     const count = await Vaccinated.count()
-	res.status(201).json(count);
+	res.status(200).json(count);
     }
 	catch(err) {
 		res.status(422).json(err);

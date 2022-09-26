@@ -10,6 +10,13 @@
 import React from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { Link, NavLink } from 'react-router-dom';
+
+ const role=localStorage.getItem("role");
+ console.log(
+  'no found', role
+ )
+    // var role = 'admin';
 
 export default function NotFound() {
   return (
@@ -30,7 +37,15 @@ export default function NotFound() {
             <Typography variant="h6">
               The page you’re looking for doesn’t exist.
             </Typography>
-            <Button variant="contained">Back Home</Button>
+            {(role == 'admin') ? <>
+            <Link to="/admin">
+            <Button variant="contained" >Back Home</Button>
+            </Link> </> :
+            <>
+            <Link to="/">
+            <Button variant="contained" >Back Home</Button>
+            </Link> </> }
+
           </Grid>
           <Grid xs={6}>
             <img

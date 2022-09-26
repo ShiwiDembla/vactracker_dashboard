@@ -14,6 +14,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { adddata, deldata } from '../../../contextprovider/ContextProvider';
 import { updatedata } from '../../../contextprovider/ContextProvider'
+import { RefreshSharp } from "@mui/icons-material";
 
 const Centers = () => {
   
@@ -72,6 +73,7 @@ const Centers = () => {
           console.log("center deleted");
           setSuccess(true);
           setDLTdata(deletedata)
+          window.location.reload(false)
           getdata();
       }
 
@@ -103,6 +105,8 @@ const Centers = () => {
            <div className="container">
                <div className="add_btn mt-2 mb-2">
                    {/* <NavLink to="/register" className="btn btn-primary">Add data</NavLink> */}
+                   
+                   <div className="btn btn-secondary" onClick={()=>window.location.reload(false)}>  <RefreshSharp /></div> 
                <Link to="/addcenter" className="btn btn-primary">Add Center</Link>
                </div>
 

@@ -78,10 +78,10 @@ router.patch("/updatecenter/:id",async(req,res)=>{
 
 
 //count centers
-router.get('/countCenters', async(req, res) => {
+router.get('/count/centers', async(req, res) => {
 	try{
     const count = await Center.count()
-	res.status(201).json(count);
+	res.status(200).json(count);
     }
 	catch(err) {
 		res.status(422).json(err);

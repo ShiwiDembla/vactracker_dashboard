@@ -15,7 +15,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { adddata, deldata } from '../../../contextprovider/ContextProvider';
 import { updatedata } from '../../../contextprovider/ContextProvider'
 import AlertDialog from "../../../components/DeleteDialogue";
-
+import { RefreshSharp } from "@mui/icons-material";
 const Users = () => {
   
   const [getuserdata, setUserdata] = useState([]);
@@ -73,6 +73,7 @@ const Users = () => {
           console.log("vaccine deleted");
           setSuccess(true);
           setDLTdata(deletedata)
+          window.location.reload(false)
           getdata();
       }
 
@@ -104,6 +105,8 @@ const Users = () => {
            <div className="container">
                <div className="add_btn mt-2 mb-2">
                    {/* <NavLink to="/register" className="btn btn-primary">Add data</NavLink> */}
+                   
+                   <div className="btn btn-secondary" onClick={()=>window.location.reload(false)}>  <RefreshSharp /></div> 
                <Link to="/adduser" className="btn btn-primary">Add User</Link>
                </div>
 

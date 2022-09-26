@@ -20,20 +20,21 @@ import Register from "../src/pages/vaccines/Register";
 import Edit from "../src/pages/vaccines/Edit";
 import Details from "../src/pages/vaccines/Details";
 import ShowSlots from "./pages/slots/ShowSlots";
-import Vaccinated from "./pages/vaccinated/Vaccinated2";
+// import Vaccinated from "./pages/vaccinated/Vaccinated2";
 import VaccinatedList from "./pages/vaccinated/VaccinatedList";
 import Admin from "./pages/admin/admindashboard/Admin";
 import Users from "./pages/admin/Users/Users";
-import List2 from "./pages/vaccinated/VaccinatedList";
+// import List2 from "./pages/vaccinated/VaccinatedList";
 import AddUser from "./pages/admin/Users/AddUser";
 import NotFound from "./pages/NotFound/NotFound";
 import Centers from "./pages/admin/Centers/Centers";
 import AddCenter from "./pages/admin/Centers/AddCenter";
 import VaccineRequests from "./pages/admin/VaccineRequests/VaccineRequests";
-import adminVaccinatedList from "./pages/admin/vaccinated/VaccinatedList";
+// import adminVaccinatedList from "./pages/admin/vaccinated/VaccinatedList";
 import EditCenter from "./pages/admin/Centers/EditCenter";
 import EditUser from "./pages/admin/Users/EditUser";
-
+import AllVaccinated from "./pages/admin/AllVaccinated/AllVaccinated";
+import AdminProfile from "./pages/admin/Profile/AdminProfile";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -85,7 +86,7 @@ function App() {
       <Route path="/admin" element={(role=='admin') ?<Admin/> : <Navigate to ="/login"/>} />
       <Route path="/users" element={(role=='admin') ?<Users/> : <Navigate to ="/login"/>} />
       {/* <Route path="/allvaccinated" element={(role=='admin') ?<adminVaccinatedList/> : <Navigate to ="/login" />} /> */}
-      <Route path="/allvaccinated" element={(role=='admin') ?<VaccinatedList/> : <Navigate to ="/login" />} />
+      <Route path="/allvaccinated" element={(role=='admin') ?<AllVaccinated/> : <Navigate to ="/login" />} />
       <Route path="/adduser" element={(role=='admin') ?<AddUser/> : <Navigate to ="/login" />} />
       <Route path="users/edituser/:id" element={(role=='admin') ?<EditUser/> : <Navigate to ="/login" />} />
 
@@ -93,6 +94,7 @@ function App() {
       <Route path="/AddCenter" element={(role=='admin') ?<AddCenter/> : <Navigate to ="/login" />} />
       <Route path="/centers/edit/:id" element= {(role=='admin') ? <EditCenter/>: <Navigate to ="/login" />} />
       <Route path="/allrequests" element={(role=='admin') ?<VaccineRequests/> : <Navigate to ="/login" />} />
+      <Route path="adminprofile"  element={(role=='admin') ?<AdminProfile/> : <Navigate to ="/login" />} />
       <Route path="*" element={<NotFound/>} />
       {/* <Route path="/hello"  render={() => (
   user ? (

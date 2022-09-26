@@ -45,7 +45,7 @@ const EditUser = () => {
 
     const getdata = async () => {
 
-        const res = await fetch(`http://localhost:8080/api/centers/showusers/${id}`, {
+        const res = await fetch(`http://localhost:8080/api/users/showusers/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -86,7 +86,7 @@ const EditUser = () => {
 
          } = inpval;
             try{
-        const res2 = await fetch(`http://localhost:8080/api/centers/updateuser/${id}`, {
+        const res2 = await fetch(`http://localhost:8080/api/users/updateuser/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -143,8 +143,65 @@ const EditUser = () => {
 				</div> */}
                         <div className={styles.right}>
                             <form className={styles.form_container} onSubmit={updateuser}>
-                                <h1>Edit Center</h1>
+                                <h1>Edit User</h1>
+                               
                                 <input
+                                    type="text"
+                                    placeholder="Firsy Name"
+                                    name="firstName"
+                                    onChange={setdata}
+                                    value={inpval.firstName}
+                                    required
+                                    className={styles.input}
+                                />
+                                 <input
+                                    type="text"
+                                    placeholder="Last Name"
+                                    name="lastName"
+                                    onChange={setdata}
+                                    value={inpval.lastName}
+                                    required
+                                    className={styles.input}
+                                />
+
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    name="email"
+                                    onChange={setdata}
+                                    value={inpval.email}
+                                    required
+                                    className={styles.input}
+                                />
+                                 <input
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                    onChange={setdata}
+                                    value={inpval.password}
+                                    required
+                                    className={styles.input}
+                                />
+                                
+                                <input
+                                    type="text"
+                                    placeholder="Center Name"
+                                    name="center"
+                                    onChange={setdata}
+                                    value={inpval.center}
+                                    required
+                                    className={styles.input}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="City"
+                                    name="city"
+                                    onChange={setdata}
+                                    value={inpval.city}
+                                    required
+                                    className={styles.input}
+                                />
+                                  <input
                                     type="text"
                                     placeholder="Registration ID"
                                     name="regid"
@@ -155,47 +212,10 @@ const EditUser = () => {
                                 />
                                 <input
                                     type="text"
-                                    placeholder="Center Name"
-                                    name="name"
+                                    placeholder="Role"
+                                    name="role"
                                     onChange={setdata}
-                                    value={inpval.name}
-                                    required
-                                    className={styles.input}
-                                />
-
-                                <input
-                                    type="text"
-                                    placeholder="City"
-                                    name="city"
-                                    onChange={setdata}
-                                    value={inpval.city}
-                                    required
-                                    className={styles.input}
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="State"
-                                    name="state"
-                                    onChange={setdata}
-                                    value={inpval.state}
-                                    required
-                                    className={styles.input}
-                                />
-                                <input
-                                    type="float"
-                                    placeholder="Latitude"
-                                    name="lat"
-                                    onChange={setdata}
-                                    value={inpval.lat}
-                                    required
-                                    className={styles.input}
-                                />
-                                <input
-                                    type="float"
-                                    placeholder="Longitude"
-                                    name="long"
-                                    onChange={setdata}
-                                    value={inpval.long}
+                                    value={inpval.role}
                                     required
                                     className={styles.input}
                                 />

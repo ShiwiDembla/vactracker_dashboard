@@ -93,7 +93,7 @@ router.delete("/delete/:id",async(req,res)=>{
 router.get('/countUsers', async(req, res) => {
 	try{
     const count = await CenterUser.count({"role": "user"})
-	res.status(201).json(count);
+	res.status(200).json(count);
     }
 	catch(err) {
 		res.status(422).json(err);

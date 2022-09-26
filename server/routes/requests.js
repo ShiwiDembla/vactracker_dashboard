@@ -103,7 +103,7 @@ router.get("/all", async (req, res) => {
 router.get('/countRequests', async(req, res) => {
 	try{
     const count = await Request.count()
-	res.status(201).json(count);
+	res.status(200).json(count);
     }
 	catch(err) {
 		res.status(422).json(err);

@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar"
 
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import CreateIcon from '@mui/icons-material/Create';
+import { RefreshSharp } from "@mui/icons-material";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom';
@@ -71,6 +72,7 @@ const ShowVaccine = () => {
             console.log("vaccine deleted");
             setSuccess(true);
             setDLTdata(deletedata)
+            window.location.reload(false)
             getdata();
         }
 
@@ -124,6 +126,7 @@ const ShowVaccine = () => {
                 <div className="container">
                     <div className="add_btn mt-2 mb-2">
                         {/* <NavLink to="/register" className="btn btn-primary">Add data</NavLink> */}
+                      <div className="btn btn-secondary" onClick={()=>window.location.reload(false)}>  <RefreshSharp /></div> 
                     <Link to="/register" className="btn btn-primary">Add Vaccine</Link>
                     </div>
 

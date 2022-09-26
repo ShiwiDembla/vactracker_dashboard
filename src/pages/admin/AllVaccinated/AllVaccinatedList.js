@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 // import { MaterialTable } from '@material-ui/core'
 // import { roRO } from '@mui/material/locale';
-import Datatable from 'react-data-table-component'
-import { Button } from '@mui/material'
+// import Datatable from 'react-data-table-component'
+// import { Button } from '@mui/material'
 
 
 const columns2 = [
@@ -18,11 +18,7 @@ const columns2 = [
   { field: 'Vaccine', headerName: 'Vaccine', width: 100 },
     { field: 'UserID', headerName: 'UserID', width: 100 },
     { field: 'Date', headerName: 'Date', width: 100 },
-    { field: 'Time', headerName: 'Time', width: 100 },
-
-
-  
-]
+    { field: 'Time', headerName: 'Time', width: 100 },]
 const columns3 = [
   { field: 'userid', headerName: 'userID', width:250 },
 ]
@@ -39,18 +35,18 @@ const columns = [
   { name: 'UserID', selector: (row)=>row.UserID, sortable: true },
   { name: 'Date', selector: (row)=>row.Date, sortable: true },
   { name: 'Time', selector: (row)=>row.Time, sortable: true },
-//   { name: 'Actions'}
 ]
 
 
-const Listvaccinatedadmin = () => {
+const AllVaccinatedList = () => {
 
   const [tableData, setTableData] = useState([])
+ 
   // const [data, setData] = useState([])
-  const center='Gulshan-e-Iqbal'
+
   const fetchData = async () => {
     try{
-    const response = await fetch('http://localhost:8080/api/vaccinated/'+center)
+    const response = await fetch('http://localhost:8080/api/vaccinated/')
     const data = await response.json()
     setTableData(data)
     console.log(data)
@@ -114,4 +110,4 @@ const Listvaccinatedadmin = () => {
   )
 }
 
-export default Listvaccinatedadmin
+export default AllVaccinatedList

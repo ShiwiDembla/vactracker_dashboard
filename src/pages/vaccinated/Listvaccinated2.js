@@ -46,8 +46,8 @@ const columns = [
 const Listvaccinated2 = () => {
 
   const [tableData, setTableData] = useState([])
-  // const center = localStorage.getItem('center')
-  const center = 'civil'
+  const center = localStorage.getItem('center')
+  // const center = 'civil'
   // const [data, setData] = useState([])
 
   const fetchData = async () => {
