@@ -13,8 +13,8 @@ const List2 = () => {
       <div className="listContainer">
         <Navbar2/>
        <AllVaccinatedList/> 
-        <div
-        > list</div>
+        {/* <div
+        > list</div> */}
       </div>
     </div>
   )

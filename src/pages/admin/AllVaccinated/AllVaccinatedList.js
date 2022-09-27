@@ -12,16 +12,17 @@ const columns2 = [
   { field: 'CNIC', headerName: 'CNIC', width: 200 },
   { field: 'Phone', headerName: 'Phone', width: 100 },
     { field: 'Email', headerName: 'Email', width: 200 },
-
   { field: 'City', headerName: 'City', width: 100 },
-  { field: 'Center', headerName: 'Center', width: 150 },
+  { field: 'Center', headerName: 'Center', width: 100 },
   { field: 'Vaccine', headerName: 'Vaccine', width: 100 },
-    { field: 'UserID', headerName: 'UserID', width: 100 },
+   
     { field: 'Date', headerName: 'Date', width: 100 },
-    { field: 'Time', headerName: 'Time', width: 100 },]
-const columns3 = [
-  { field: 'userid', headerName: 'userID', width:250 },
-]
+    { field: 'Time', headerName: 'Time', width: 100 },
+    { field: 'UserID', headerName: 'UserID', width: 200 }]
+
+// const columns3 = [
+//   { field: 'userid', headerName: 'userID', width:250 },
+// ]
 
 
 const columns = [
@@ -70,8 +71,7 @@ const AllVaccinatedList = () => {
       Vaccine: item?.Vaccine,
       UserID: item?.UserID,
       Date: item?.Date,
-      Time: item?.Time,
-
+      Time: item?.Time
     }   
   } )
   
@@ -80,7 +80,7 @@ const AllVaccinatedList = () => {
 //   console.log(rows)
 
   return (
-    <div style={{ height: 700, width: '100%', marginLeft:30,marginRight:10 }}>
+    <div style={{ height: 700, width: '100%', marginLeft:30,marginRight:0, marginTop:35 }}>
 
       <DataGrid
       // loading

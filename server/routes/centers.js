@@ -63,14 +63,18 @@ router.patch("/updatecenter/:id",async(req,res)=>{
     try{
         const {id}=req.params;
         const centerexists = await Center.findOne({ regid: req.body.regid });
-		if (centerexists)
-			return res
-				.status(409)
-				.send({ message: "Center with this registration ID already Exist!" });
+   
+		if (centerexists && centerexists._id.toJSON()!==id){
+					return res.status(409).send({ message: "Center with given registration ID already Exist!" });
+				
+			}
+            else {
         const updateuser = await Center.findByIdAndUpdate({_id:id},req.body,{new:true})
         console.log(updateuser);
-        res.status(201).json(updateuser);
-    }catch(error){
+        res.status(200).json(updateuser);
+            }
+    }
+    catch(error){
         res.status(422).json(error);
     }
 })

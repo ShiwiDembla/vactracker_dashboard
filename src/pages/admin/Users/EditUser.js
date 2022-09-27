@@ -19,7 +19,7 @@ const EditUser = () => {
         firstName: "",
         lastName: "",
         email: "",
-        password:"",
+        // password:"",
         regid:"",
         center:"",
         city: "",
@@ -78,7 +78,7 @@ const EditUser = () => {
             firstName,
             lastName,
             email,
-            password,
+            // password,
             regid,
             center,
             city,
@@ -95,7 +95,7 @@ const EditUser = () => {
                  firstName,
             lastName,
             email,
-            password,
+            // password,
             regid,
             center,
             city,
@@ -107,15 +107,24 @@ const EditUser = () => {
         console.log(data2);
 
 
-        if (res2.status === 422 || !data2) {
-            alert("fill the data");
+        if (res2.status === 408) {
+            setSuccess("");
+           setError("User with given email already exists");
            
-        } else {
+        }
+        else if (res2.status ===409) { 
+            setSuccess("");
+            setError("")
+            setError("User with given registration id already exists");
+            
+        }
+        else if(res2.status === 200){
+            setError("")
             setSuccess("Successfully Editted")
             history.push("/")
             setUPdata(data2);
            
-            setError("")
+            
         }
     } catch(error){
             setError(error.response.data.message);
@@ -173,7 +182,7 @@ const EditUser = () => {
                                     required
                                     className={styles.input}
                                 />
-                                 <input
+                                 {/* <input
                                     type="password"
                                     placeholder="Password"
                                     name="password"
@@ -181,7 +190,7 @@ const EditUser = () => {
                                     value={inpval.password}
                                     required
                                     className={styles.input}
-                                />
+                                /> */}
                                 
                                 <input
                                     type="text"
@@ -221,17 +230,12 @@ const EditUser = () => {
                                 />
 
 
-
-
-
                                 {error && <div className={styles.error_msg}>{error}</div>}
                                 {success && <div className={styles.success_msg}>{success}</div>}
                                 <div className={styles.btn_container}>
                                     <button type="submit" className={styles.green_btn} >
                                         Apply
                                     </button>
-
-
 
                                     <NavLink to="/users">
                                         <button className={styles.gray_btn} >

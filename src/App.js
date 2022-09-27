@@ -76,6 +76,7 @@ function App() {
       <Route path="/vaccines" element= {user ? <ShowVaccine/> : <Navigate to ="/login" /> } />
       <Route path="/register" element= {user ? <Register/>: <Navigate to ="/login" />} />
       <Route path="/vaccines/edit/:id" element= {user ? <Edit/>: <Navigate to ="/login" />} />
+      <Route path="/profile" element= {user ? <AdminProfile/>: <Navigate to ="/login" />} />
     
       {/* <Route path="/registervaccine" element={<Register/>} /> */}
       <Route path="/view/:id" element={user ? <Details/> : <Navigate to ="/login" />} />

@@ -101,27 +101,31 @@ const x = () => {
       
       <Dialog
         open={open}
+        // style={{}}
+    
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Are You Sure You Want to delete?"}
+        <DialogTitle id="alert-dialog-title" style={{fontWeight:'bold'}}>
+          {"Confirm Delete"}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText id="alert-dialog-description" style={{fontWeight:'bold', fontSize:20}}>
             {/* {complainId}{serviceId}{Id} */}
-            {usersId}
+            {/* {usersId} */}
+            "Are You Sure You Want to delete?"
+           
           </DialogContentText>
 
         </DialogContent>
         <DialogActions>
-          <Button style={{backgroundColor: 'green', color: 'white'}} onClick={handleClose}>NO</Button>
+          <Button style={{backgroundColor: 'gray', color: 'white', width:100, height:40}} onClick={handleClose}>CANCEL</Button>
           {/* <Button onClick={deleteuser(usersId)} style={{backgroundColor: 'red', color: 'white'}} autoFocus>
             YES
           </Button> */}
-                    <Button onClick={()=>deleteuser(usersId)} style={{backgroundColor: 'red', color: 'white'}} autoFocus>
-            YES
+                    <Button onClick={()=>deleteuser(usersId)} style={{backgroundColor: '#FF0000', color: 'white', width:100, height:40}} autoFocus>
+            DELETE
           </Button>
         </DialogActions>
       </Dialog>

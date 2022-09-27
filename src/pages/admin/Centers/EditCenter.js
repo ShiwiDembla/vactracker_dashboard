@@ -98,8 +98,10 @@ const EditCenter = () => {
         console.log(data2);
 
 
-        if (res2.status === 422 || !data2) {
-            alert("fill the data");
+        if (res2.status === 409) {
+            setError("Center with given Registration ID already exists");
+            setSuccess("")
+            // console.log("error");
            
         } else {
             setSuccess("Successfully Editted")

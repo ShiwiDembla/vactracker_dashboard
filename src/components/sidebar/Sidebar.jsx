@@ -92,11 +92,13 @@ const Sidebar = () => {
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
           </li> */}
+          <Link to ="/profile">
           <p className="title">Account</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          </Link>
           <li >
             <ExitToAppIcon className="icon" />
            

@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-
+import { SvgIcon } from "@mui/material";
+import {ReactComponent as VacTracker} from '../../../src/vacTracker.svg'
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
@@ -22,11 +23,15 @@ const Login = () => {
 			console.log("city",res.data[1])
 			console.log("center",res.data[2])
 			console.log("role",res.data[3])
+			console.log("id", res.data[4])
+
+
 
 			localStorage.setItem("token", res.data[0]);
 			localStorage.setItem("city", res.data[1]);
 			localStorage.setItem("center", res.data[2]);
 			localStorage.setItem("role", res.data[3]);
+			localStorage.setItem("id", res.data[4]);
 			if(res.data[3] === "admin"){
 			window.location = "/admin";
 			}
@@ -52,7 +57,10 @@ const Login = () => {
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your Account</h1>
+					<h1 className={styles.heading}>Welcome To VacTracker</h1>
+					<VacTracker height={200} width={200}/>
+						<div className={styles.login_heading}>Login to Your Account</div>
+
 						<input
 							type="email"
 							placeholder="Email"
