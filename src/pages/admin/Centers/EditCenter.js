@@ -99,20 +99,23 @@ const EditCenter = () => {
 
 
         if (res2.status === 409) {
-            setError("Center with given Registration ID already exists");
             setSuccess("")
+            setError("Center with given Registration ID already exists");
+            
             // console.log("error");
            
         } else {
+            setError("")
             setSuccess("Successfully Editted")
             history.push("/")
             setUPdata(data2);
            
-            setError("")
+            
         }
     } catch(error){
+        setSuccess("");
             setError(error.response.data.message);
-            setSuccess("");
+            
     }
 
     }

@@ -41,7 +41,7 @@ const Widget = ({ type, amount }) => {
     title: "Centers ",
     isMoney: false,
     count: amount,
-    link: "See all centers",
+    // link: "See all centers",
     icon: (
       <PersonOutlinedIcon
                 className="icon"
@@ -56,7 +56,7 @@ const Widget = ({ type, amount }) => {
     title: "Vaccine Requests ",
     isMoney: false,
     count:amount,
-    link: "See all Requests",
+    // link: "See all Requests",
     icon: (
       <PersonOutlinedIcon
         className="icon"
@@ -73,7 +73,7 @@ const Widget = ({ type, amount }) => {
     title: "Vaccinated ",
     isMoney: false,
     count:amount,
-    link: "See all Vaccinated",
+    // link: "See all Vaccinated",
     icon: (
       <PersonOutlinedIcon
         className="icon"
@@ -162,7 +162,7 @@ const Widget = ({ type, amount }) => {
         <span className="counter">
          {data.count}
         </span>
-        <span className="link">{data.link}</span>
+        {/* <span className="link">{data.link}</span> */}
       </div>
       <div className="right">
         {/* <div className="percentage positive">

@@ -1,0 +1,6 @@
+demo_job_1:
+     tags:
+       - shell
+     script:
+       - echo Hello World
+

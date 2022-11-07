@@ -69,8 +69,8 @@ function App() {
 			<Route path="/signup" exact element={<Signup />} />
 			{/* <Route path="/login" exact element={<Login />} /> */}
 			<Route path="/login"  element={user ? <Navigate to = "/home" />: <Login />} />
-			<Route path="/"  element={<Navigate replace to="/login" />} />
-      <Route path="/home" element={user ? <Home /> : <Navigate to ="/" />} />
+			{/* <Route path="/"  element={<Navigate replace to="/login" />} /> */}
+      {/* <Route path="/home" element={user ? <Home /> : <Navigate to ="/" />} /> */}
       {/* <Route path="/home" element={<Home />} /> */}
       <Route path="/requests" element= {user ? <List/> : <Navigate to ="/login" />} />
       <Route path="/vaccines" element= {user ? <ShowVaccine/> : <Navigate to ="/login" /> } />
@@ -97,6 +97,11 @@ function App() {
       <Route path="/allrequests" element={(role=='admin') ?<VaccineRequests/> : <Navigate to ="/login" />} />
       <Route path="adminprofile"  element={(role=='admin') ?<AdminProfile/> : <Navigate to ="/login" />} />
       <Route path="*" element={<NotFound/>} />
+
+
+
+      <Route path="/" element={user ? (<>{(role=='admin') ? <Admin/> : <Home/>}</>) : <Navigate to ="/login" />} />
+      <Route path="/home" element={user ? (<>{(role=='user') ?  <Home/> : <Navigate to ='/admin' />}</>) : <Navigate to ="/login" />} />
       {/* <Route path="/hello"  render={() => (
   user ? (
     <Navigate replace to="/home"/>
